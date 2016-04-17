@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity counter is
+entity srflipflop is
   port(
      sr : in std_logic_vector (1 downto 0);
      clk : in std_logic;
@@ -10,7 +10,7 @@ entity counter is
   );
 end entity;
 
-architecture behavior of counter is
+architecture behavior of srflipflop is
 signal aux : std_ulogic;
 begin
   process(clk, prs_clr)

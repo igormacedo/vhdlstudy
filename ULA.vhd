@@ -25,7 +25,7 @@ BEGIN
 	aux <= (OTHERS => '0');
 	WITH E SELECT
 		S <= 	aux & (A+B) WHEN 0,
-				A*B WHEN 1,
-				aux & (A XOR B) WHEN 2,
-				aux & (A AND B) WHEN 3;
+					A*B WHEN 1,
+					aux & (A XOR B) WHEN 2,
+					aux & (A AND B) WHEN 3;
 END ARCHITECTURE;
