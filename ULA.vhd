@@ -1,31 +1,31 @@
-LIBRARY ieee;
-USE ieee.STD_LOGIC_1164.all;
-USE ieee.STD_LOGIC_ARITH.all;
---USE ieee.STD_LOGIC_SIGNED.all;
-USE ieee.STD_LOGIC_UNSIGNED.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+--use ieee.std_logic_signed.all;
+use ieee.std_logic_unsigned.all;
 
-ENTITY ula IS
-GENERIC(N : INTEGER := 4);
+entity ula is
+generic(n : integer := 4);
 
-PORT(
-	E : IN INTEGER RANGE 0 TO N-1;
-	A : IN STD_LOGIC_VECTOR(N-1 DOWNTO 0);
-	B : IN STD_LOGIC_VECTOR(N-1 DOWNTO 0);
+port(
+	e : in integer range 0 to n-1;
+	a : in std_logic_vector(n-1 downto 0);
+	b : in std_logic_vector(n-1 downto 0);
 
-	S : OUT STD_LOGIC_VECTOR(2*N-1 DOWNTO 0)
+	s : out std_logic_vector(2*n-1 downto 0)
 );
 
-END ENTITY;
+end entity;
 
-ARCHITECTURE estrutura OF ula IS
+architecture estrutura of ula is
 
-SIGNAL aux : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
+signal aux : std_logic_vector(n-1 downto 0);
 
-BEGIN
-	aux <= (OTHERS => '0');
-	WITH E SELECT
-		S <= 	aux & (A+B) WHEN 0,
-					A*B WHEN 1,
-					aux & (A XOR B) WHEN 2,
-					aux & (A AND B) WHEN 3;
-END ARCHITECTURE;
+begin
+	aux <= (others => '0');
+	with e select
+		s <= 	aux & (a+b) when 0,
+					a*b when 1,
+					aux & (a xor b) when 2,
+					aux & (a and b) when 3;
+end architecture;
